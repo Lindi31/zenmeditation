@@ -100,7 +100,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                               Row(
                                 children: [
                                   const Text(
-                                    "Walk",
+                                    "Activity",
                                     style: TextStyle(fontSize: 18),
                                   ),
                                   const Spacer(),
@@ -177,7 +177,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                             children: [
                               Row(
                                 children: [
-                                  const Text("Water"),
+                                  const Text("Hydration"),
                                   const Spacer(),
                                   SizedBox(
                                     height: 30,
@@ -205,7 +205,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                                 ),
                               ),
                               const Text(
-                                "bottles",
+                                "glasses",
                                 style: TextStyle(color: Colors.grey),
                               ),
                             ],
@@ -231,7 +231,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                               const Row(
                                 children: [
                                   Text(
-                                    "Heart",
+                                    "Heartrate",
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
@@ -314,7 +314,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                               Row(
                                 children: [
                                   Text(
-                                    "Gym",
+                                    "Work out",
                                     style: TextStyle(fontSize: 18),
                                   ),
                                   Spacer(),
@@ -326,7 +326,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                               ),
                               Spacer(),
                               Text(
-                                "0",
+                                "150",
                                 style: TextStyle(fontSize: 32),
                               ),
                               Text(
@@ -348,4 +348,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
       ),
     );
   }
+
+  FadeInAnimation WorkOut()
+
 }

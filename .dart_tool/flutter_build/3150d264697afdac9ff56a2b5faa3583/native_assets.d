@@ -1,0 +1,1 @@
+ /Users/isa/Development/Projects/zenmeditation/.dart_tool/flutter_build/3150d264697afdac9ff56a2b5faa3583/native_assets.yaml: 
