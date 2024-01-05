@@ -42,8 +42,8 @@ class ProfilePage extends StatelessWidget {
                   decoration: ShapeDecoration(
                     shape: const StarBorder(
                       innerRadiusRatio: .9,
-                      pointRounding: .2,
-                      points: 10,
+                      pointRounding: .3,
+                      points: 12,
                     ),
                     image: const DecorationImage(
                       image: AssetImage('assets/images/model.jpg'),
@@ -64,7 +64,7 @@ class ProfilePage extends StatelessWidget {
             ),
           ),
           const Text(
-            "Rakul Preet",
+            "Yuji Itadori",
             style: TextStyle(fontSize: 30, fontWeight: FontWeight.w300),
           ),
           const SizedBox(height: 8),
@@ -75,7 +75,7 @@ class ProfilePage extends StatelessWidget {
               color: Colors.deepPurple.shade50,
             ),
             child: const Text(
-              "Advanced",
+              "Sorcerer",
               style: TextStyle(color: Colors.deepPurple),
             ),
           ),
