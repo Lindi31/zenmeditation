@@ -1,9 +1,10 @@
+import 'dart:async';
 import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:health/health.dart';
 import 'package:iconsax/iconsax.dart';
-
 import '../animations/fade_in.dart';
 import '../widgets/app_card.dart';
 import '../widgets/increasing_text.dart';
@@ -18,6 +19,47 @@ class DashBoardScreen extends StatefulWidget {
 }
 
 class _DashBoardScreenState extends State<DashBoardScreen> {
+  HealthFactory health = HealthFactory();
+  List<HealthDataPoint> _healthDataList = [];
+  int totalSteps = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchHealthData();
+  }
+
+  Future<void> _fetchHealthData() async {
+    bool isAuthorized = await health.requestAuthorization([
+      HealthDataType.STEPS,
+    ]);
+
+    if (isAuthorized) {
+      DateTime startDate = DateTime.now().subtract(const Duration(days: 1));
+      DateTime endDate = DateTime.now();
+
+      List<HealthDataPoint> healthData = await health.getHealthDataFromTypes(startDate, endDate, [HealthDataType.STEPS]);
+      _healthDataList = HealthFactory.removeDuplicates(healthData);
+    }
+// Berechnen der Gesamtschritte
+    int steps = 0;
+    for (var data in _healthDataList) {
+      if (data.value is int) { // Überprüfen, ob der Wert ein int ist
+        steps += data.value as int;
+      } else {
+        steps += (data.value as double).toInt(); // Konvertieren von double zu int
+      }
+    }
+    setState(() {
+      totalSteps = steps;
+    });
+
+
+    setState(() {
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
     double w = (MediaQuery.sizeOf(context).width / 2) - 35;
@@ -154,10 +196,10 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                 ),
               ],
             ),
-            const Expanded(
+             Expanded(
               child: ProgressWithText(
-                value: 2232,
-                indicatorValue: .78,
+                value: totalSteps,
+                indicatorValue: totalSteps>=10000?10000: totalSteps/10000,
                 title: 'steps',
               ),
             ),
@@ -211,55 +253,117 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
       ),
     );
   }
-  
-  FadeInAnimation hydration() {
-    return FadeInAnimation(
-      delay: 2.5,
-      child: AppCard(
-        height: 250,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                const Text("Hydration"),
-                const Spacer(),
-                SizedBox(
-                  height: 30,
-                  width: 30,
+
+  Widget hydration() {
+    return GestureDetector(
+      onTap: _showHydrationDialog,
+      child: FadeInAnimation(
+        delay: 2.5,
+        child: AppCard(
+          height: 250,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  const Text("Hydration"),
+                  const Spacer(),
+                  SizedBox(
+                    height: 30,
+                    width: 30,
+                    child: Image.asset(
+                      'assets/icons/waterdrop.png',
+                      color: Colors.deepPurple,
+                    ),
+                  ),
+                ],
+              ),
+              Expanded(
+                child: Center(
                   child: Image.asset(
-                    'assets/icons/waterdrop.png',
-                    color: Colors.deepPurple,
+                    'assets/icons/glass-of-water.png',
+                    height: 50,
                   ),
                 ),
-              ],
-            ),
-            Expanded(
-              child: Center(
-                child: Image.asset(
-                  'assets/icons/glass-of-water.png',
-                  height: 50,
+              ),
+              Text(
+                "$glasses", // Aktualisiert die Anzahl der Gläser
+                style: const TextStyle(
+                  fontSize: 32,
                 ),
               ),
-            ),
-            const IncreasingText(
-              2,
-              isSingle: true,
-              style: TextStyle(
-                fontSize: 32,
+              const Text(
+                "glasses",
+                style: TextStyle(color: Colors.grey),
               ),
-            ),
-            const Text(
-              "glasses",
-              style: TextStyle(color: Colors.grey),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
   }
-  
-  
+  int glasses = 0; // Definieren Sie 'glasses' im Zustand des Widgets
+
+  void _showHydrationDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        int localGlasses = glasses; // Lokaler Zustand für den Dialog
+        return StatefulBuilder(
+          builder: (BuildContext context, StateSetter setState) {
+            return AlertDialog(
+              title: const Text("Wasser hinzufügen"),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text("$localGlasses Gläser"),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      IconButton(
+                        icon: const Icon(Icons.remove),
+                        onPressed: () {
+                          setState(() {
+                            if (localGlasses > 0) localGlasses--;
+                          });
+                        },
+                      ),
+                      Image.asset(
+                        'assets/icons/glass-of-water.png',
+                        height: 50,
+                      ),
+                      IconButton(
+                        icon: const Icon(Icons.add),
+                        onPressed: () {
+                          setState(() {
+                            localGlasses++;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              actions: <Widget>[
+                TextButton(
+                  child: const Text("Fertig"),
+                  onPressed: () {
+                    this.setState(() {
+                      glasses = localGlasses; // Aktualisieren des globalen Zustands
+                    });
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            );
+          },
+        );
+      },
+    );
+  }
+
+
+
   FadeInAnimation heartrate() {
     return FadeInAnimation(
       delay: 1.5,
@@ -351,43 +455,119 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
     
     
   }
-  
-  
-  FadeInAnimation workOut(){
-    return const FadeInAnimation(delay: 2.5,
-      child: AppCard(
-        height: 155,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Text(
-                  "Work out",
-                  style: TextStyle(fontSize: 18),
-                ),
-                Spacer(),
-                Icon(
-                  Iconsax.speedometer5,
-                  color: Colors.deepPurple,
+
+
+  int workoutMinutes = 150; // Startwert für Workout-Minuten
+
+  void _showWorkoutDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        int localMinutes = workoutMinutes;
+        Timer? timer;
+
+        void startTimer(bool increment) {
+          timer?.cancel();
+          timer = Timer.periodic(Duration(milliseconds: 100), (_) {
+            setState(() {
+              localMinutes = increment ? localMinutes + 1 : localMinutes > 0 ? localMinutes - 1 : 0;
+            });
+          });
+        }
+
+        return StatefulBuilder(
+          builder: (BuildContext context, StateSetter dialogSetState) {
+            return AlertDialog(
+              title: const Text("Workout-Zeit anpassen"),
+              content: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  GestureDetector(
+                    onLongPress: () => startTimer(false),
+                    onLongPressUp: () => timer?.cancel(),
+                    child: InkWell(
+                      onTap: () => dialogSetState(() {
+                        if (localMinutes > 0) localMinutes--;
+                      }),
+                      child: const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Icon(Icons.remove),
+                      ),
+                    ),
+                  ),
+                  Text("$localMinutes min"),
+                  GestureDetector(
+                    onLongPress: () => startTimer(true),
+                    onLongPressUp: () => timer?.cancel(),
+                    child: InkWell(
+                      onTap: () => dialogSetState(() {
+                        localMinutes++;
+                      }),
+                      child: const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Icon(Icons.add),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              actions: <Widget>[
+                TextButton(
+                  child: const Text("Fertig"),
+                  onPressed: () {
+                    timer?.cancel();
+                    setState(() {
+                      workoutMinutes = localMinutes;
+                    });
+                    Navigator.of(context).pop();
+                  },
                 ),
               ],
-            ),
-            Spacer(),
-            Text(
-              "150",
-              style: TextStyle(fontSize: 32),
-            ),
-            Text(
-              "min",
-              style: TextStyle(color: Colors.grey),
-            ),
-          ],
+            );
+          },
+        );
+      },
+    );
+  }
+
+
+  Widget workOut() {
+    return GestureDetector(
+      onTap: _showWorkoutDialog,
+      child: FadeInAnimation(
+        delay: 2.5,
+        child: AppCard(
+          height: 155,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Row(
+                children: [
+                  Text(
+                    "Work out",
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  Spacer(),
+                  Icon(
+                    Iconsax.speedometer5,
+                    color: Colors.deepPurple,
+                  ),
+                ],
+              ),
+              Spacer(),
+              Text(
+                "$workoutMinutes", // Aktualisierte Anzahl der Minuten
+                style: TextStyle(fontSize: 32),
+              ),
+              const Text(
+                "min",
+                style: TextStyle(color: Colors.grey),
+              ),
+            ],
+          ),
         ),
       ),
-    );   
-    
-    
+    );
   }
 
 }

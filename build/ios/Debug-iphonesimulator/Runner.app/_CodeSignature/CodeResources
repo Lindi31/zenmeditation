@@ -34,7 +34,7 @@
 		</data>
 		<key>Base.lproj/Main.storyboardc/BYZ-38-t0r-view-8bC-Xf-vdC.nib</key>
 		<data>
-		hMnf/VIyTGR2nRcoLS3JCfeGmDs=
+		ebfgq9oaod6EJJQtxJE54Zm59IE=
 		</data>
 		<key>Base.lproj/Main.storyboardc/Info.plist</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		y4KvxdRfukl8ezwQLAC9C2rNpmY=
+		uNYq6YsIiFeUPyTL8/kghlfDmPU=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		rQlGst6eaMRxdvzoa5/qqz4TAyY=
+		K25Ee9YleAzeRS6cCZhlNbvvsN8=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/NOTICES.Z</key>
 		<data>
-		AxYQRburVLTLs7KzWtmJ2bS7lIM=
+		NeRKLYrHFtQuF+iz6KF6Wjlht64=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/dashboard.png</key>
 		<data>
@@ -102,7 +102,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/model.jpg</key>
 		<data>
-		Wq0WEWx96aGWjgYZ7yrq91ylYDo=
+		UTk4MyDVuPbQauMRpSRCRLFWjJU=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/play.png</key>
 		<data>
@@ -122,7 +122,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		4b0qsdsUgDxuLvQae91eoPNwnrA=
+		b/zpvMMZvYc5x+HkrX+Sv9ygSlY=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -224,6 +224,30 @@
 		<data>
 		Ubat0LvE4LUgCwHeyl0Anx2vnzk=
 		</data>
+		<key>Frameworks/device_info.framework/Info.plist</key>
+		<data>
+		LPxFz4xO/XIsMTo2yPv3QhLbQhQ=
+		</data>
+		<key>Frameworks/device_info.framework/_CodeSignature/CodeResources</key>
+		<data>
+		NVz++oHavLH9SuEGuZBWNUl2/RE=
+		</data>
+		<key>Frameworks/device_info.framework/device_info</key>
+		<data>
+		cS/QWeT+j/PP1z6+Ir258V2X4Wk=
+		</data>
+		<key>Frameworks/health.framework/Info.plist</key>
+		<data>
+		YsIQYJ/b2dR03vDhucBmr8IrK+4=
+		</data>
+		<key>Frameworks/health.framework/_CodeSignature/CodeResources</key>
+		<data>
+		iYwwyCoAboRjXecz0Y3xrl7psKw=
+		</data>
+		<key>Frameworks/health.framework/health</key>
+		<data>
+		NiWtXS1nQ+8UWzhHMFpANVCwrj0=
+		</data>
 		<key>Frameworks/path_provider_foundation.framework/Info.plist</key>
 		<data>
 		pJ+zmSVStVQnmuNiEHNreAWmCgY=
@@ -238,7 +262,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		waB18o8cFqN+++sDj9qRYUnlY8g=
+		kN9jENyIPJGIEucMz6eMr9al6vs=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -300,7 +324,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			BY/hOMO0FcCl8mCMQqjVbFeb8Q97c1G9lHscfspHFNk=
+			Uns6CC0d+doVz2gKYBh1LeEL6xV0WrIPjwTMGsT2a5o=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/Info.plist</key>
@@ -321,7 +345,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			EOCZxKa0imFaz1qE1z+HfVmgQEShPnMsQB3fxmojpIw=
+			8CEarRziu78KBkOTHUdWTq6EDWSL/LVZn/niIn6aCG4=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -335,7 +359,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			vwBRsKeqNN70j7rUmdP+zA5MHbrzyLXrDniOukXqnmw=
+			HgorFIPr8PaX4Dn+9iZrRIBrdrI8Z4fGhVF4syJZ1Dc=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.bin</key>
@@ -363,7 +387,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			cZqTG7dT1z+Yn+XSqL0RxlHPCOqM4c2lRjZtiPr6Fro=
+			HXHzrbBssESBoRnyR25pC5bVgFR163avzMj2QE17/TU=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/icons/dashboard.png</key>
@@ -419,7 +443,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			1dnLoPXkLNhxc/un4oY9sHBs12UEpiaId2pyFvaTFyk=
+			e+05rF119TNs1VEvxuFAYRT78/lhko7m6OwLsBoudRk=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/assets/images/play.png</key>
@@ -454,7 +478,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			gV5vnYt0OG/5Jb/KtFeUYwri3RKA3lc2E2mrWf3aDUU=
+			AxXF0oyLZ+D/RIl89vqx3x8xeAnIE3FaKOSBThjAG2Y=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -630,6 +654,48 @@
 			<key>hash2</key>
 			<data>
 			ZepykIMSjfzhwAcmupMrkaqvXkhza1ZE3TdHjl8odaw=
+			</data>
+		</dict>
+		<key>Frameworks/device_info.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			7jIrAgEMN0JJrtzgcaSPQRa8L+Bv4OHjQLbc1XXqa8A=
+			</data>
+		</dict>
+		<key>Frameworks/device_info.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Wp3G4tqhWLEoOAAIc9w6o5tAHgBIbYnS+VF80o4PNfE=
+			</data>
+		</dict>
+		<key>Frameworks/device_info.framework/device_info</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			cPxspK2xz2+dG+VvI0l5pvyB/sma6lNAS+uCncZdnBU=
+			</data>
+		</dict>
+		<key>Frameworks/health.framework/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			lT5CNGi+iBWWqw439YeltpNM193LjrNbWktmGD66MUU=
+			</data>
+		</dict>
+		<key>Frameworks/health.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Diln+++4s0eIEqO34C1uljubQLqth1mSqzmSQ3e0g8I=
+			</data>
+		</dict>
+		<key>Frameworks/health.framework/health</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			i8xFdwL+2kkRs8//uhUnWHpz7zmtikRVePWUBa4TyDo=
 			</data>
 		</dict>
 		<key>Frameworks/path_provider_foundation.framework/Info.plist</key>
